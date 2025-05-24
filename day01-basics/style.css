@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+}
+input, select, button {
+  margin: 5px;
+  padding: 0.5rem;
+}

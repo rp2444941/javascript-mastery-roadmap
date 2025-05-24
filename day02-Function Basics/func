@@ -1,0 +1,34 @@
+📌 Function = block of code we can reuse
+
+✅ Declaration:
+function greet(name) {
+  console.log("Hello " + name);
+}
+
+✅ Call:
+greet("Rudra");
+
+✅ Parameters = values function expects
+✅ Arguments = values we pass when calling
+
+📌 Return:
+function add(a, b) {
+  return a + b;
+}
+
+let sum = add(2, 3); // 5
+
+📌 Function expressions:
+const sayHi = function(name) {
+  return "Hi " + name;
+};
+
+📌 Arrow function:
+const square = (n) => n * n;
+
+📌 Function inside function = allowed
+
+✅ Functions are first-class citizens in JS
+- Stored in variables
+- Passed as arguments
+- Returned from other functions

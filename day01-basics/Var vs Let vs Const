@@ -1,0 +1,23 @@
+📌 var
+- Function scoped
+- Can be re-declared
+- Can be updated
+- Hoisted (initial value = undefined)
+- ❌ Avoid using in modern JS
+
+📌 let
+- Block scoped ({} inside if/for/etc.)
+- Cannot be re-declared (in same scope)
+- Can be updated
+- Hoisted but in TDZ (Temporal Dead Zone)
+
+📌 const
+- Block scoped
+- Cannot be re-declared
+- ❌ Cannot be updated (for primitive values)
+- For objects/arrays → we can change properties/elements
+- Hoisted but also in TDZ
+
+🧠 TDZ = Time between declaration and initialization → accessing variable throws ReferenceError
+
+✅ Always prefer: `const` → `let` → ❌ `var`
