@@ -32,3 +32,29 @@ const square = (n) => n * n;
 - Stored in variables
 - Passed as arguments
 - Returned from other functions
+
+📌 Syntax:
+const add = (a, b) => a + b;
+
+📌 One param:
+n => n * n
+
+📌 No param:
+() => "Hello!"
+
+📌 With block:
+(x) => {
+  const y = x * 2;
+  return y;
+}
+
+⚠️ No `this`, `arguments`, `super`, or `new.target`
+
+📌 Arrow functions don’t get their own `this`
+- They use the `this` of the outer scope (lexical `this`)
+
+✅ Use arrow functions for:
+- Callbacks
+- Shorter syntax
+- Keeping `this` from parent
+
