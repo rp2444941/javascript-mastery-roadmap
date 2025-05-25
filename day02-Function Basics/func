@@ -33,8 +33,10 @@ const square = (n) => n * n;
 - Passed as arguments
 - Returned from other functions
 
+
 1️⃣ Arrow Functions
 📌 Shorter syntax for functions
+
 
 📌 Syntax:
 const add = (a, b) => a + b;
@@ -111,3 +113,4 @@ function outer() {
   }
   inner();
 }
+
