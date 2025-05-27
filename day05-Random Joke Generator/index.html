@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #joke {
+      margin: 20px;
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😂 Random Joke Generator</h1>
+  <p id="joke">Click the button to get a joke!</p>
+  <button id="getJoke">Get Joke</button>
+
+  <script>
+    const jokeBtn = document.getElementById('getJoke');
+    const jokeText = document.getElementById('joke');
+
+    async function getJoke() {
+      try {
+        const response = await fetch('https://icanhazdadjoke.com/', {
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+        const data = await response.json();
+        jokeText.textContent = data.joke;
+      } catch (error) {
+        jokeText.textContent = 'Oops! Could not fetch a joke right now.';
+        console.error(error);
+      }
+    }
+
+    jokeBtn.addEventListener('click', getJoke);
+  </script>
+
+</body>
+</html>
