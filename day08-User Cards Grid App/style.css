@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  padding: 1rem;
+}
+h1 {
+  text-align: center;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 200px;
+}

@@ -1,0 +1,116 @@
+📌 Function = block of code we can reuse
+
+✅ Declaration:
+function greet(name) {
+  console.log("Hello " + name);
+}
+
+✅ Call:
+greet("Rudra");
+
+✅ Parameters = values function expects
+✅ Arguments = values we pass when calling
+
+📌 Return:
+function add(a, b) {
+  return a + b;
+}
+
+let sum = add(2, 3); // 5
+
+📌 Function expressions:
+const sayHi = function(name) {
+  return "Hi " + name;
+};
+
+📌 Arrow function:
+const square = (n) => n * n;
+
+📌 Function inside function = allowed
+
+✅ Functions are first-class citizens in JS
+- Stored in variables
+- Passed as arguments
+- Returned from other functions
+
+
+1️⃣ Arrow Functions
+📌 Shorter syntax for functions
+
+
+📌 Syntax:
+const add = (a, b) => a + b;
+
+📌 One param:
+n => n * n
+
+📌 No param:
+() => "Hello!"
+
+📌 With block:
+(x) => {
+  const y = x * 2;
+  return y;
+}
+
+⚠️ No `this`, `arguments`, `super`, or `new.target`
+
+📌 Arrow functions don’t get their own `this`
+- They use the `this` of the outer scope (lexical `this`)
+
+✅ Use arrow functions for:
+- Callbacks
+- Shorter syntax
+- Keeping `this` from parent
+
+
+2️⃣ Hoisting
+
+📌 Hoisting = JS moves declarations to top of their scope
+
+✅ Function declarations are fully hoisted
+- Can call before they appear in code
+
+✅ var → hoisted + initialized as undefined
+❌ let/const → hoisted but NOT initialized (TDZ error)
+
+Example:
+console.log(a); // undefined
+var a = 10;
+
+console.log(b); // ❌ ReferenceError
+let b = 20;
+
+function test() {
+  console.log("Hello"); // works even if called before
+}
+
+3️⃣ Scoping
+
+📌 Scope = where a variable can be accessed
+
+1. Global Scope:
+let x = 10; // accessible everywhere
+
+2. Function Scope:
+function sayHi() {
+  let name = "Rudra"; // only inside function
+}
+
+3. Block Scope:
+if (true) {
+  let a = 5; // only inside if block
+}
+
+📌 var = function scoped
+📌 let/const = block scoped
+
+🧠 Nested scopes:
+function outer() {
+  let a = 1;
+  function inner() {
+    console.log(a); // can access outer scope
+  }
+  inner();
+}
+
