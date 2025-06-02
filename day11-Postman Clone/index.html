@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Postman Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Postman Clone</h1>
+    
+    <input type="text" id="url" placeholder="Enter API URL..." />
+    
+    <select id="method">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+    </select>
+    
+    <textarea id="body" placeholder="Enter JSON body (for POST only)"></textarea>
+    
+    <button id="sendBtn">Send Request</button>
+    
+    <h2>Response:</h2>
+    <pre id="responseOutput"></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
