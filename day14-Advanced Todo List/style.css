@@ -1,0 +1,53 @@
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 2rem;
+  transition: background 0.3s;
+}
+body.dark {
+  background: #222;
+  color: #fff;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+#todo-input {
+  flex: 1;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+  cursor: pointer;
+}
+.filters {
+  margin: 1rem 0;
+}
+.filters .filter.active {
+  font-weight: bold;
+}
+#todo-list {
+  list-style: none;
+  padding: 0;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  background: #eee;
+  padding: 8px;
+}
+body.dark .todo-item {
+  background: #333;
+}
+.todo-item.done span {
+  text-decoration: line-through;
+}
+.todo-item span[contenteditable] {
+  outline: none;
+}
