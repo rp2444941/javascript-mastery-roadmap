@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #faf8ef;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #776e65;
+    }
+
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-template-rows: repeat(4, 100px);
+      gap: 10px;
+      background: #bbada0;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .tile {
+      width: 100px;
+      height: 100px;
+      background: #cdc1b4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #776e65;
+      border-radius: 5px;
+    }
+
+    .tile-2    { background: #eee4da; }
+    .tile-4    { background: #ede0c8; }
+    .tile-8    { background: #f2b179; color: #fff; }
+    .tile-16   { background: #f59563; color: #fff; }
+    .tile-32   { background: #f67c5f; color: #fff; }
+    .tile-64   { background: #f65e3b; color: #fff; }
+    .tile-128  { background: #edcf72; color: #fff; }
+    .tile-256  { background: #edcc61; color: #fff; }
+    .tile-512  { background: #edc850; color: #fff; }
+    .tile-1024 { background: #edc53f; color: #fff; }
+    .tile-2048 { background: #edc22e; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>2048 Clone</h1>
+  <div id="game-board"></div>
+
+  <script>
+    let grid = Array.from({ length: 4 }, () => Array(4).fill(0));
+
+    function drawGrid() {
+      const board = document.getElementById('game-board');
+      board.innerHTML = '';
+      grid.forEach(row => {
+        row.forEach(cell => {
+          const div = document.createElement('div');
+          div.className = 'tile';
+          if (cell !== 0) {
+            div.textContent = cell;
+            div.classList.add(`tile-${cell}`);
+          }
+          board.appendChild(div);
+        });
+      });
+    }
+
+    function addRandomTile() {
+      const empty = [];
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          if (grid[r][c] === 0) empty.push([r, c]);
+        }
+      }
+      if (empty.length === 0) return;
+      const [r, c] = empty[Math.floor(Math.random() * empty.length)];
+      grid[r][c] = Math.random() > 0.9 ? 4 : 2;
+    }
+
+    function slide(row) {
+      let newRow = row.filter(val => val !== 0);
+      for (let i = 0; i < newRow.length - 1; i++) {
+        if (newRow[i] === newRow[i + 1]) {
+          newRow[i] *= 2;
+          newRow[i + 1] = 0;
+        }
+      }
+      newRow = newRow.filter(val => val !== 0);
+      while (newRow.length < 4) newRow.push(0);
+      return newRow;
+    }
+
+    function moveLeft() {
+      grid = grid.map(row => slide(row));
+    }
+
+    function moveRight() {
+      grid = grid.map(row => slide(row.reverse()).reverse());
+    }
+
+    function moveUp() {
+      for (let c = 0; c < 4; c++) {
+        let col = [grid[0][c], grid[1][c], grid[2][c], grid[3][c]];
+        let newCol = slide(col);
+        for (let r = 0; r < 4; r++) grid[r][c] = newCol[r];
+      }
+    }
+
+    function moveDown() {
+      for (let c = 0; c < 4; c++) {
+        let col = [grid[0][c], grid[1][c], grid[2][c], grid[3][c]];
+        let newCol = slide(col.reverse()).reverse();
+        for (let r = 0; r < 4; r++) grid[r][c] = newCol[r];
+      }
+    }
+
+    function checkGameOver() {
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          if (grid[r][c] === 0) return false;
+          if (c < 3 && grid[r][c] === grid[r][c + 1]) return false;
+          if (r < 3 && grid[r][c] === grid[r + 1][c]) return false;
+        }
+      }
+      alert("Game Over!");
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const before = JSON.stringify(grid);
+      if (e.key === 'ArrowLeft') moveLeft();
+      else if (e.key === 'ArrowRight') moveRight();
+      else if (e.key === 'ArrowUp') moveUp();
+      else if (e.key === 'ArrowDown') moveDown();
+      else return;
+
+      if (JSON.stringify(grid) !== before) {
+        addRandomTile();
+        drawGrid();
+        checkGameOver();
+      }
+    });
+
+    // Start the game
+    addRandomTile();
+    addRandomTile();
+    drawGrid();
+  </script>
+</body>
+</html>
