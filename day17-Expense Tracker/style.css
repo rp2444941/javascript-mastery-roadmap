@@ -1,0 +1,62 @@
+body {
+  background: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+.container {
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+.balance {
+  text-align: center;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.money {
+  font-size: 18px;
+  font-weight: bold;
+}
+.plus {
+  color: green;
+}
+.minus {
+  color: red;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.list li {
+  background: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-left: 5px solid;
+}
+.list li.plus {
+  border-color: green;
+}
+.list li.minus {
+  border-color: red;
+}
+.list li button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+form input, form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
