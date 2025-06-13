@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notion Lite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside id="sidebar">
+      <h2>📝 Notion Lite</h2>
+      <button id="addPageBtn">➕ New Page</button>
+      <ul id="pageList"></ul>
+    </aside>
+    <main>
+      <div id="noteHeader">
+        <h3 id="pageTitle">Select a Page</h3>
+        <button id="deletePageBtn">🗑️ Delete</button>
+        <button id="toggleTheme">🌓 Toggle Theme</button>
+      </div>
+      <div id="noteContent" contenteditable="true" spellcheck="false">
+        Your notes will appear here...
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

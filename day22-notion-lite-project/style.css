@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+:root {
+  --bg: #f4f4f4;
+  --text: #222;
+  --accent: #007bff;
+}
+
+.dark {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --accent: #66b2ff;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+}
+
+aside {
+  width: 250px;
+  background: var(--accent);
+  color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#pageList {
+  list-style: none;
+  padding: 0;
+}
+
+#pageList li {
+  padding: 0.5rem;
+  background: white;
+  color: black;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#pageList li.active {
+  background: #d0ebff;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#noteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#noteContent {
+  flex: 1;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background: white;
+  overflow-y: auto;
+}

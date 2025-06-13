@@ -1,5 +1,3 @@
-// index.js
-
 import { salesData } from './data.js';
 
 function generateReport(data) {
