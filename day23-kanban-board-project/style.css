@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+:root {
+  --bg: #f0f0f0;
+  --text: #222;
+  --column: #ffffff;
+}
+.dark {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --column: #2e2e2e;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--column);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.board {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.column {
+  background: var(--column);
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 250px;
+  flex-shrink: 0;
+}
+.column h2 {
+  margin-bottom: 0.5rem;
+}
+.card {
+  background: #dce3f2;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  cursor: grab;
+}
+.card:active {
+  cursor: grabbing;
+}
+.card.dragging {
+  opacity: 0.5;
+}
+button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  padding: 0.3rem;
+  margin-bottom: 0.3rem;
+}
