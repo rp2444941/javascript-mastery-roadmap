@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecommerce Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li>Home</li>
+        <li>Upload</li>
+        <li>Orders</li>
+        <li>Logout</li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>Upload PDF</h1>
+      <form id="uploadForm">
+        <input type="file" id="pdfFile" accept="application/pdf" />
+        <button type="submit">Upload</button>
+      </form>
+
+      <h2>Uploaded Files</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Filename</th>
+            <th>Size (KB)</th>
+          </tr>
+        </thead>
+        <tbody id="fileTable">
+          <!-- Rows will be added here -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
